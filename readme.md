@@ -1,3 +1,3 @@
-# React Boilerplate
+# Fabulous Grid
 
-Created with the help of Andy Van Slaars' egghead.io tutorial "Modern JavaScript Tooling with React."
+This will be updated with documentation and rationale, once I've built it.

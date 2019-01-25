@@ -1,7 +1,7 @@
 {
-  "name": "react_boilerplate",
+  "name": "fabulous_grid",
   "version": "0.1.0",
-  "description": "webpack and tooling setup for react apps",
+  "description": "mock e-commerce app that allows drag and drop of products",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
@@ -18,14 +18,6 @@
   },
   "author": "April Cound",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/savvysqrrl3/react_tools_template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/savvysqrrl3/react_tools_template/issues"
-  },
-  "homepage": "https://github.com/savvysqrrl3/react_tools_template#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
@@ -62,5 +54,14 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-hot-loader": "^4.6.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savvysqrrl3/fab_grid.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/savvysqrrl3/fab_grid/issues"
+  },
+  "homepage": "https://github.com/savvysqrrl3/fab_grid#readme"
 }
