@@ -1,0 +1,13 @@
+{
+  "products": {
+    "item1": {
+      "id": "12345",
+      "image": "prodimg.jpg",
+      "name": "brand and title of cookware",
+      "salePrice": "$123",
+      "originalPrice": "$234",
+      "url": "http://www.someurl.com",
+      "starRating": "5"
+    }
+  }
+}
