@@ -4,47 +4,35 @@ import Column from './Column';
 import mockData from './data';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-{
-  /* <Droppable droppableId={this.props.column.id}>
-          {provided => (
-            <div
-              className={styles.productList}
-              innerRef={innerRef}
-              {...provided.droppableProps}
-            >
-              <Draggable
-                draggableId={this.props.product.id}
-                index={this.props.index}
-              >
-                {this.props.products.map((product, index) => (
-                  <Product key={product.id} product={product} index={index} />
-                ))}
-              </Draggable>
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable> */
-
-  {
-    /* <Droppable droppableId={this.props.column.id}>
-        {provided => (
-            <Column
-                key={column.id}
-                column={column}
-                products={products}
-                className={styles.productList}
-                innerRef={innerRef}
-                {...provided.droppableProps}
-            />
-        )}
-    </Droppable> */
-  }
-}
-
 class Container extends React.Component {
   state = mockData;
   onDragEnd = result => {
-    //    This is a required argument
+    const { destination, source, draggableId } = result;
+    if (!destination) {
+      return;
+    }
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+    const column = this.state.columns[source.droppableId];
+    const newProductIds = Array.from(column.productIds);
+    newProductIds.splice(source.index, 1);
+    newProductIds.splice(destination.index, 0, draggableId);
+    const newColumn = {
+      ...column,
+      productIds: newProductIds
+    };
+    const newState = {
+      ...this.state,
+      columns: {
+        ...this.state.columns,
+        [newColumn.id]: newColumn
+      }
+    };
+    this.setState(newState);
   };
 
   render() {

@@ -7,7 +7,7 @@ import Product from '../Product';
 class Column extends React.Component {
   render() {
     return (
-      <Droppable droppableId={this.props.column.id}>
+      <Droppable droppableId={this.props.column.id} direction="horizontal">
         {provided => (
           <div
             provided={provided}
