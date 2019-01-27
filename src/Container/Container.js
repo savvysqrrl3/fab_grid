@@ -3,7 +3,6 @@ import styles from './styles.less';
 import Column from './Column';
 import mockData from './data';
 import { DragDropContext } from 'react-beautiful-dnd';
-// import { Droppable } from 'react-beautiful-dnd';
 
 {
   /* <Droppable droppableId={this.props.column.id}>
