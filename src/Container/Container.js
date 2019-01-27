@@ -45,7 +45,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 class Container extends React.Component {
   state = mockData;
   onDragEnd = result => {
-    // TODO: reorder our column
+    //    This is a required argument
   };
 
   render() {
