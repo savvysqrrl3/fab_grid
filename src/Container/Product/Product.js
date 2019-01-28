@@ -15,7 +15,13 @@ class Product extends React.Component {
             {...provided.dragHandleProps}
             className={styles.product}
           >
-            {this.props.product.name}
+            <a href={this.props.product.url}>
+              <img src={this.props.product.img} alt={this.props.product.name} />
+            </a>
+            <a href={this.props.product.url} className={styles.link}>
+              {this.props.product.name}
+            </a>
+            <div className={styles.price}>{this.props.product.price}</div>
           </div>
         )}
       </Draggable>
