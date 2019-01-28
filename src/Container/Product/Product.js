@@ -6,6 +6,7 @@ import { Draggable } from 'react-beautiful-dnd';
 class Product extends React.Component {
   render() {
     return (
+      // The Product is a Draggable, which can be moved onto a Droppable area (Column).
       <Draggable draggableId={this.props.product.id} index={this.props.index}>
         {provided => (
           <div
@@ -15,6 +16,7 @@ class Product extends React.Component {
             {...provided.dragHandleProps}
             className={styles.product}
           >
+            {/* render the product data within the Product component */}
             <a href={this.props.product.url}>
               <img src={this.props.product.img} alt={this.props.product.name} />
             </a>

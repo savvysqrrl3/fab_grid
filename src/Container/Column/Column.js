@@ -7,6 +7,7 @@ import Product from '../Product';
 class Column extends React.Component {
   render() {
     return (
+      // The Column is a Droppable area, the direction items can be dragged is vertical
       <Droppable droppableId={this.props.column.id} direction="vertical">
         {provided => (
           <div
@@ -15,6 +16,7 @@ class Column extends React.Component {
             {...provided.droppableProps}
             className={styles.productList}
           >
+            {/* map over products array and generate a Product component for each */}
             {this.props.products.map((product, index) => (
               <Product key={product.id} product={product} index={index} />
             ))}

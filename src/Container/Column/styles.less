@@ -1,8 +1,13 @@
+@white: #ffffff;
+
 .productList {
   display: flex;
+
+  //   Product components will be displayed vertically, and when one is dragged
+  // to a different column, remaining items will rise to the top of the container
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 30px;
   padding-top: 30px;
-  background-color: #ffffff;
+  background-color: @white;
 }

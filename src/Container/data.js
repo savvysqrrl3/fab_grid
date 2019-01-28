@@ -125,10 +125,13 @@ const mockData = {
     }
   },
 
+  // items within columns will be displayed vertically, so additional items
+  // can be added to the end of any array depending upon the desired layout.
+  // The number of items in an array will grow and shrink as items are moved around.
   columns: {
     column1: {
       id: 'column1',
-      productIds: ['13243', '53465', '85685', '53432', '15781']
+      productIds: ['13243', '53465', '85685', '53432']
     },
     column2: {
       id: 'column2',
@@ -140,7 +143,7 @@ const mockData = {
     },
     column4: {
       id: 'column4',
-      productIds: ['85654', '35678', '87645', '42312']
+      productIds: ['85654', '35678', '87645', '42312', '15781']
     }
   },
   columnOrder: ['column1', 'column2', 'column3', 'column4']

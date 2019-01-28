@@ -1,15 +1,20 @@
 import React from 'react';
 import styles from './styles.less';
-import Column from './Column';
 import mockData from './data';
 import { DragDropContext } from 'react-beautiful-dnd';
+import Column from './Column';
 
 class Container extends React.Component {
+  // see data.js for the shape of the data -columns and products- that will be rendered dynamically
   state = mockData;
+
+  //   This block handles identifying the original location of a Draggable (Product),
+  // it's new location after dragging, and generates new column arrays to save in state.
 
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
 
+    // check whether the item returned to its original location, and no changes need to be saved
     if (!destination) {
       return;
     }
@@ -20,10 +25,11 @@ class Container extends React.Component {
     ) {
       return;
     }
-
+    //identify ID of column where draggable starts and ends
     const start = this.state.columns[source.droppableId];
     const finish = this.state.columns[destination.droppableId];
-    // Moving within the same column
+
+    // Moving draggable within the same column it started in
     if (start === finish) {
       const newProductIds = Array.from(start.productIds);
       newProductIds.splice(source.index, 1);
@@ -46,7 +52,7 @@ class Container extends React.Component {
       return;
     }
 
-    // Moving from one column to another
+    // Moving a draggable from one column to another
     const startProductIds = Array.from(start.productIds);
     startProductIds.splice(source.index, 1);
     const newStart = {
@@ -75,7 +81,9 @@ class Container extends React.Component {
   render() {
     return (
       <div className={styles.column}>
+        {/* Context wrapper for components that will be droppable and draggable */}
         <DragDropContext onDragEnd={this.onDragEnd}>
+          {/* Map over columns in the array, and generate a Column component for each */}
           {this.state.columnOrder.map(columnId => {
             const column = this.state.columns[columnId];
             const products = column.productIds.map(
