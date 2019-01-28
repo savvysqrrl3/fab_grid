@@ -6,30 +6,67 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 class Container extends React.Component {
   state = mockData;
+
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
+
     if (!destination) {
       return;
     }
+
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
     ) {
       return;
     }
-    const column = this.state.columns[source.droppableId];
-    const newProductIds = Array.from(column.productIds);
-    newProductIds.splice(source.index, 1);
-    newProductIds.splice(destination.index, 0, draggableId);
-    const newColumn = {
-      ...column,
-      productIds: newProductIds
+
+    const start = this.state.columns[source.droppableId];
+    const finish = this.state.columns[destination.droppableId];
+    // Moving within the same column
+    if (start === finish) {
+      const newProductIds = Array.from(start.productIds);
+      newProductIds.splice(source.index, 1);
+      newProductIds.splice(destination.index, 0, draggableId);
+
+      const newColumn = {
+        ...start,
+        productIds: newProductIds
+      };
+
+      const newState = {
+        ...this.state,
+        columns: {
+          ...this.state.columns,
+          [newColumn.id]: newColumn
+        }
+      };
+
+      this.setState(newState);
+      return;
+    }
+
+    // Moving from one column to another
+    const startProductIds = Array.from(start.productIds);
+    startProductIds.splice(source.index, 1);
+    const newStart = {
+      ...start,
+      productIds: startProductIds
     };
+
+    const finishProductIds = Array.from(finish.productIds);
+    finishProductIds.splice(destination.index, 0, draggableId);
+    const newFinish = {
+      ...finish,
+      productIds: finishProductIds
+    };
+
     const newState = {
       ...this.state,
       columns: {
         ...this.state.columns,
-        [newColumn.id]: newColumn
+        [newStart.id]: newStart,
+        [newFinish.id]: newFinish
       }
     };
     this.setState(newState);

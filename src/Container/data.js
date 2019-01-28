@@ -13,19 +13,14 @@ const mockData = {
   columns: {
     column1: {
       id: 'column1',
-      productIds: [
-        '13243',
-        '53465',
-        '85685',
-        '53432',
-        '31271',
-        '13531',
-        '14641',
-        '87531'
-      ]
+      productIds: ['13243', '53465', '85685', '53432']
+    },
+    column2: {
+      id: 'column2',
+      productIds: ['31271', '13531', '14641', '87531']
     }
   },
-  columnOrder: ['column1']
+  columnOrder: ['column1', 'column2']
 };
 
 export default mockData;

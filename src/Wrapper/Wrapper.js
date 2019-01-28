@@ -6,10 +6,8 @@ class Wrapper extends React.Component {
   render() {
     return (
       <div className={styles.main}>
-        <h1 className={styles.header}>Fabulous Grid</h1>
-        <div>
-          <Container />
-        </div>
+        <h1 className={styles.header}>Inspiration Board</h1>
+        <Container />
       </div>
     );
   }
