@@ -8,6 +8,8 @@ The drag and drop functionality in this app was created using react-beautiful-dn
 
 [Github Repo for react-beautiful-dnd:](https://github.com/atlassian/react-beautiful-dnd)
 
+I used React v.16.7.0 with Webpack, Babel, ESLint, and Prettier, with Less as the CSS preprocessor.
+
 To install and run this project in development mode, run the following commands in your terminal:
 
 `$ npm install`
@@ -26,7 +28,7 @@ To install and run this project in development mode, run the following commands 
 
 ## Some challenges I encountered (a.k.a. things I learned)
 
-1. Getting file types to work with webpack (.less, .jsx)
+1. Getting file types to work with webpack (.less, ~~.jsx~~)
 
 2. Importing and exporting components properly using index.js
 
